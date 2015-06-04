@@ -1,0 +1,14 @@
+Variables:
+Local variables, method parameters, and method names should all start with a lowercase letter or with an underscore. 
+Global variables are prefixed with a dollar sign ($), while instance variables begin with an ``at'' sign (@). 
+Class variables start with two ``at'' signs (@@). 
+Finally, class names, module names, and constants should start with an uppercase letter.
+
+Following this initial character, a name can be any combination of letters, digits, and underscores (with the proviso that the character following an @ sign may not be a digit).
+-
+
+
+
+
+
+
