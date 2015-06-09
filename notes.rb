@@ -7,7 +7,7 @@
 def sayHello(name)
   result = "Hello " + name + "!"
   # Using the ", the sequence #{expression} is replaced by the value of expression.
-  result = "Hello #{name}!"   
+  result = "Hello #{name}!"
   return result
 #since the value returned by a ruby method is the value of the last expression evaluated, we can get rid of the return statement altogether.
   "Hello #{name}!"
@@ -65,7 +65,7 @@ end
 square = square*square  while square < 1000
 # some regex
  /Perl|Python/ is the same as /P(erl|ython)/
- /ab+c/ match a string containing an 'a' followed by one or more 'b's followed by a 'c' .  change + to * and it becomes ..zero or more 'b's 
+ /ab+c/ match a string containing an 'a' followed by one or more 'b's followed by a 'c' .  change + to * and it becomes ..zero or more 'b's
 /\d\d:\d\d:\d\d/     # a time such as 12:34:56
 /Perl.*Python/       # Perl, zero or more other chars, then Python
 /Perl\s+Python/      # Perl, one or more spaces, then Python
@@ -103,7 +103,7 @@ callBlock { puts "In the block" }
 
 # Parameters can be provided to yield and they will be passed to the block. Within the block, you list the names of the arguments to receive these parameters between vertical bars (``|'').
   def callBlock
-    yield , 
+    yield ,
   end
   callBlock { |, | ... }
 
@@ -118,13 +118,32 @@ def each
   end
 end
 
+#Since all elements have an each method we can iterate over an arrays elements :
+[ 'cat', 'dog', 'horse' ].each do |animal|
+  print animal, " -- "
+end
+# Many looping constructs are methods in ruby:
+5.times {  print "*" }
+3.upto(6) {|i|  print i }
+('a'..'e').each {|char| print char }
+#produces: *****3456abcde
 
+#Another output method we use a lot is printf, which prints its arguments under the control of a format string (just like printf in C or Perl).
+printf "Number: %5.2f, String: %s", 1.23, "hello"
+#produces: Number:  1.23, String: hello
+#In this example, the format string "Number: %5.2f, String: %s" tells printf to substitute in a floating point number (allowing five characters in total, with two after the decimal point) and a string.
 
+# the routine gets, which returns the next line from your program's standard input stream.
+line = gets
+print line
+# gets stores the line it just read into the global variable $_
 
-
-
-
-
-
-
-
+# Print all lines in the input stream that contains the word Ruby:
+while gets           # assigns line to $_
+  if /Ruby/          # matches against $_
+    print            # prints $_
+  end
+end
+# And the Ruby way of doing it:
+ARGF.each { |line|  print line  if line =~ /Ruby/ }
+# This uses the predefined object ARGF, which represents the input stream that can be read by a program.
