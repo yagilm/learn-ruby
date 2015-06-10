@@ -1,16 +1,25 @@
 #!/usr/bin/env ruby
 
-#string1 = String.new("Hello World!")
-#puts string1
-
-# Method that returns string with a name
-def sayHello(name)
-  result = "Hello #{name}!"   
-#  return result #since the value returned by a ruby method is the value of the last expression evaluated, we can get rid of the return statement altogether.
-  "Hello #{name}!"
+class Song
+  def initialize(name, artist, duration)
+    @name     = name
+    @artist   = artist
+    @duration = duration
+  end
+  def to_s
+    "Song: #{@name} - #{@artist} (#{@duration})"
+  end
 end
-puts sayHello("Manos")
-#
-#
+# Define a subclass od Song that ha 
+class KaraokeSong < Song
+  def initialize(name, artist, duration, lyrics)
+    super(name, artist, duration)
+    @lyrics = lyrics
+  end
+end
 
 
+
+
+aSong = Song.new("Bicylops", "Fleck", 260)
+puts aSong.to_s
